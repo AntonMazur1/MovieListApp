@@ -8,10 +8,10 @@
 import UIKit
 
 extension UITableViewCell {
-    func configureCell(with movie: MovieModel) {
+    func configureCell(with movieTitle: String, and movieYear: String) {
         var content = defaultContentConfiguration()
-        content.text = movie.title
-        content.secondaryText = movie.year
+        content.text = movieTitle
+        content.secondaryText = movieYear
         contentConfiguration = content
     }
 }

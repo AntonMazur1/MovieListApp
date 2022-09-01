@@ -13,7 +13,8 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var movieTitleTextField: UITextField!
     @IBOutlet weak var movieYearTextField: UITextField!
     
-    private var movieList: [MovieModel] = []
+    private var movieTitle: [String] = []
+    private var movieYear: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +38,9 @@ class MovieViewController: UIViewController {
             return
         }
         
-        let movie = MovieModel.createMovie(title: title, year: year)
-        if !(movieList.contains(movie)) {
-            movieList.append(movie)
+        if !(movieTitle.contains(title)) {
+            movieTitle.append(title)
+            movieYear.append(year)
             movieTableView.reloadData()
         }
         
@@ -62,13 +63,14 @@ class MovieViewController: UIViewController {
 //MARK: - Table View Delegate
 extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        movieList.count
+        movieTitle.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
-        let movie = movieList[indexPath.row]
-        cell.configureCell(with: movie)
+        let movieTitle = movieTitle[indexPath.row]
+        let movieYear = movieYear[indexPath.row]
+        cell.configureCell(with: movieTitle, and: movieYear)
         return cell
     }
     
@@ -78,7 +80,8 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            movieList.remove(at: indexPath.row)
+            movieTitle.remove(at: indexPath.row)
+            movieYear.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

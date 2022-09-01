@@ -13,7 +13,6 @@
 		89CC644028BF52D0003D540B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CC643E28BF52D0003D540B /* Main.storyboard */; };
 		89CC644228BF52D1003D540B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89CC644128BF52D1003D540B /* Assets.xcassets */; };
 		89CC644528BF52D1003D540B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CC644328BF52D1003D540B /* LaunchScreen.storyboard */; };
-		89CC645128BF59FE003D540B /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC645028BF59FE003D540B /* MovieModel.swift */; };
 		89CC645328BF5AE1003D540B /* Extension + UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC645228BF5AE1003D540B /* Extension + UITableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +25,6 @@
 		89CC644128BF52D1003D540B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89CC644428BF52D1003D540B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89CC644628BF52D1003D540B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89CC645028BF59FE003D540B /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		89CC645228BF5AE1003D540B /* Extension + UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITableViewCell.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +60,6 @@
 			children = (
 				89CC644F28BF55E7003D540B /* Application */,
 				89CC644D28BF55D7003D540B /* View Controllers */,
-				89CC645428BF5C8B003D540B /* Models */,
 				89CC644C28BF55CE003D540B /* Storyboards */,
 				89CC645528BF5C91003D540B /* Extensions */,
 				89CC644E28BF55DE003D540B /* Resources */,
@@ -103,14 +100,6 @@
 				89CC644628BF52D1003D540B /* Info.plist */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		89CC645428BF5C8B003D540B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				89CC645028BF59FE003D540B /* MovieModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		89CC645528BF5C91003D540B /* Extensions */ = {
@@ -192,7 +181,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89CC645128BF59FE003D540B /* MovieModel.swift in Sources */,
 				89CC643D28BF52D0003D540B /* MovieViewController.swift in Sources */,
 				89CC643928BF52D0003D540B /* AppDelegate.swift in Sources */,
 				89CC643B28BF52D0003D540B /* SceneDelegate.swift in Sources */,
