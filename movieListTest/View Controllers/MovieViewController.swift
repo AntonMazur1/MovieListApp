@@ -13,8 +13,7 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var movieTitleTextField: UITextField!
     @IBOutlet weak var movieYearTextField: UITextField!
     
-    private var movieTitle: [String] = []
-    private var movieYear: [String] = []
+    private var movieList: [MovieModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +37,11 @@ class MovieViewController: UIViewController {
             return
         }
         
-        if !(movieTitle.contains(title)) {
-            movieTitle.append(title)
-            movieYear.append(year)
-            movieTableView.reloadData()
+        let movie = MovieModel.createMovie(title: title, year: year)
+        if !(movieList.contains(movie)) {
+            movieList.append(movie)
+            let indexPath = IndexPath(row: movieList.count - 1, section: 0)
+            movieTableView.insertRows(at: [indexPath], with: .automatic)
         }
         
         movieTitleTextField.text = ""
@@ -63,14 +63,13 @@ class MovieViewController: UIViewController {
 //MARK: - Table View Delegate
 extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        movieTitle.count
+        movieList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
-        let movieTitle = movieTitle[indexPath.row]
-        let movieYear = movieYear[indexPath.row]
-        cell.configureCell(with: movieTitle, and: movieYear)
+        let movie = movieList[indexPath.row]
+        cell.configureCell(with: movie)
         return cell
     }
     
@@ -80,9 +79,10 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            movieTitle.remove(at: indexPath.row)
-            movieYear.remove(at: indexPath.row)
+            movieList.remove(at: indexPath.row)
+            tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
         }
     }
 }

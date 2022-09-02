@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89C8C47528C1EC950045E9ED /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C8C47428C1EC950045E9ED /* MovieModel.swift */; };
 		89CC643928BF52D0003D540B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC643828BF52D0003D540B /* AppDelegate.swift */; };
 		89CC643B28BF52D0003D540B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC643A28BF52D0003D540B /* SceneDelegate.swift */; };
 		89CC643D28BF52D0003D540B /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC643C28BF52D0003D540B /* MovieViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		89C8C47428C1EC950045E9ED /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		89CC643528BF52D0003D540B /* movieListTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movieListTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CC643828BF52D0003D540B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89CC643A28BF52D0003D540B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89C8C47628C1EC990045E9ED /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				89C8C47428C1EC950045E9ED /* MovieModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		89CC642C28BF52D0003D540B = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				89CC644F28BF55E7003D540B /* Application */,
+				89C8C47628C1EC990045E9ED /* Models */,
 				89CC644D28BF55D7003D540B /* View Controllers */,
 				89CC644C28BF55CE003D540B /* Storyboards */,
 				89CC645528BF5C91003D540B /* Extensions */,
@@ -183,6 +194,7 @@
 			files = (
 				89CC643D28BF52D0003D540B /* MovieViewController.swift in Sources */,
 				89CC643928BF52D0003D540B /* AppDelegate.swift in Sources */,
+				89C8C47528C1EC950045E9ED /* MovieModel.swift in Sources */,
 				89CC643B28BF52D0003D540B /* SceneDelegate.swift in Sources */,
 				89CC645328BF5AE1003D540B /* Extension + UITableViewCell.swift in Sources */,
 			);
