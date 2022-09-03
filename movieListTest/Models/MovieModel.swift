@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct MovieModel {
+struct MovieModel: Hashable {
     let title: String
     let year: String
     
-    static func createMovie(title: String, year: String) -> MovieModel {
-        MovieModel(title: title, year: year)
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
     }
 }
 
