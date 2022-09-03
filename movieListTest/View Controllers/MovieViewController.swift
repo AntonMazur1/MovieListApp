@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Collections
 
 class MovieViewController: UIViewController {
     
@@ -13,12 +14,7 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var movieTitleTextField: UITextField!
     @IBOutlet weak var movieYearTextField: UITextField!
     
-    private var movieList: [MovieModel: Int] = [:]
-    private var movieData: [MovieModel] {
-        movieList
-            .sorted { $0.value < $1.value }
-            .map { $0.key }
-    }
+    private var movieList: OrderedSet<MovieModel> = OrderedSet()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +39,12 @@ class MovieViewController: UIViewController {
         }
         
         let movie = MovieModel(title: title, year: year)
-        guard movieList[movie] == nil else {
-            showAlert(title: "Movie is already exist", message: "This movie is already exist in your list")
+        guard !(movieList.contains(movie)) else {
+            showAlert(title: "Movie is already exist", message: "Movie is already exist in your list")
             return
         }
-        let moviesCount = movieList.count
-        movieList[movie] = moviesCount
-        let indexPath = IndexPath(row: movieData.count - 1, section: 0)
+        movieList.append(movie)
+        let indexPath = IndexPath(row: movieList.count - 1, section: 0)
         movieTableView.insertRows(at: [indexPath], with: .automatic)
         
         movieTitleTextField.text = ""
@@ -76,7 +71,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
-        let movie = movieData[indexPath.row]
+        let movie = movieList[indexPath.row]
         cell.configureCell(with: movie)
         return cell
     }
@@ -87,7 +82,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            data.remove(at: indexPath.row)
+            movieList.remove(at: indexPath.row)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()

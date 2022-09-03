@@ -10,10 +10,6 @@ import Foundation
 struct MovieModel: Hashable {
     let title: String
     let year: String
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(title)
-    }
 }
 
 extension MovieModel: Equatable {
